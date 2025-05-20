@@ -5,16 +5,16 @@
     <title>Redirecting to App...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-      const deeplink = 'digitalstethoscope://app/home';
+      const deeplink = 'sentids://app/home';
       const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
 
       if (isMobile) {
         // Try to open app directly
         window.location.href = deeplink;
 
-        // Optional fallback: redirect to app download page if app not installed
+        // Fallback: redirect to website if app not installed
         setTimeout(() => {
-          window.location.href = 'https://your-website.com/download';
+          window.location.href = 'https://www.sentinan.com';
         }, 3000);
       }
     </script>
