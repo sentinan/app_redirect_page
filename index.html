@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting to App...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      const deeplink = 'digitalstethoscope://app/home';
+      const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        // Try to open app directly
+        window.location.href = deeplink;
+
+        // Optional fallback: redirect to app download page if app not installed
+        setTimeout(() => {
+          window.location.href = 'https://your-website.com/download';
+        }, 3000);
+      }
+    </script>
+  </head>
+  <body>
+    <p id="message">Redirecting to the app... If nothing happens, please open this page on your mobile device.</p>
+    <script>
+      if (!/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+        document.getElementById('message').textContent = 'This page is intended to open the app. Please access it on your mobile device.';
+      }
+    </script>
+  </body>
+</html>
+
